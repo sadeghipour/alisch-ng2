@@ -1,3 +1,22 @@
 <div class="container">
 <header app-header></header>
+    <div class="post-pagination">
+        <div class="post-contents">
+            <!--<div class="post-item" data-dir-paginate="post in lastPosts | itemsPerPage: 10">-->
+            <div class="post-item" *ngFor="let post of lastPosts">
+                <h1 class="post-title">{{post?.title}}</h1>
+                <p class="post-date">{{post?.date}}</p>
+                <div class="post-contents-image">
+                    <a [routerLink]="['/post',post?.link]"><img *ngIf="post?.image[0]" class="post-img" [src]="'/assets'+post?.image"></a>
+                </div>
+                <p class="post-description" [innerHTML]="post?.description"></p>
+                <a [routerLink]="['/post',post?.link]" class="post-detail-link">Read more</a>
+                <div class="post-separator"></div>
+                <div class="pagination-content">
+                    <!--<dir-pagination-controls on-page-change="pageChanged(newPageNumber)"></dir-pagination-controls>-->
+                </div>
+            </div>
+        </div>
+
+    </div>
 </div>

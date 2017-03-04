@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import {NoContentComponent} from "./no-content/no-content.component";
 
 export function getHomeModule() {
   return System.import('./home/home.module' + (process.env.AOT ? '.ngfactory' : ''))
@@ -16,7 +17,8 @@ export function getPostModule() {
     RouterModule.forChild([
       { path: '', redirectTo: '/home', pathMatch: 'full' },
       { path: 'home', loadChildren: getHomeModule },
-      { path: 'post', loadChildren: getPostModule }
+      { path: 'post', loadChildren: getPostModule },
+      {path:'**',component:NoContentComponent}
     ])
   ],
 })

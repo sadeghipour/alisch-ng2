@@ -6,7 +6,7 @@
         <div class="banner-block">
             <div class="main-slide-animation non-draggable-image" *ngFor="let banner of post?.image;let i=index" [ngStyle]="{display:!isCurrentSlideIndex(i) }">
 
-                <img class="post-img" [src]="banner" alt="{{post?.title}}">
+                <img class="post-img" [src]="'/assets'+banner" alt="{{post?.title}}">
                 <div *ngIf="post?.image.length>1" class="gallery-controller">
                     <p class="next" (click)="nextSlide()"> >> </p>
                     <p class="prev" (click)="prevSlide()"> << </p>

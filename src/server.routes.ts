@@ -12,5 +12,4 @@
 export const routes: string[] = [
   'home',
   'post',
-  '**',
 ];

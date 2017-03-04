@@ -105,6 +105,19 @@ routes.forEach(route => {
   app.get(`/${route}/*`, ngApp);
 });
 
+app.get('/404', function(req, res) {
+  res.status(404);
+  res.render('index', {
+    req,
+    res,
+    // time: true, // use this to determine what part of your app is slow only in development
+    preboot: false,
+    baseUrl: '/',
+    requestUrl: req.originalUrl,
+    originUrl: `http://localhost:${ app.get('port') }`
+  });
+});
+
 app.get('*', function(req, res) {
   res.setHeader('Content-Type', 'application/json');
   var pojo = { status: 404, message: 'No Content' };

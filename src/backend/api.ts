@@ -108,13 +108,11 @@ export function createTodoApi() {
 
     router.route('/getPostByTitle').post(function (req,res){
         var title = req.body.title;
-        console.log(req.body);
-
         async.series([
             function (callback) {
                 var postOptions = {
                     url: baseURL+'getPostByTitle',
-                    body: "title="+title,
+                    body: "title="+title.replace(/&/g,'%26'),
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
                     }
@@ -140,6 +138,36 @@ export function createTodoApi() {
         })
 
 
+    });
+
+    router.route('/getAllPosts').post(function (req,res){
+        async.series([
+            function (callback) {
+                var postOptions = {
+                    url: baseURL+'getAllPosts',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
+                    }
+                };
+
+                request.post(postOptions, function (error, response, body) {
+                    if (!error && res.statusCode == 200) {
+                        callback(true,JSON.parse(body));
+                    }
+                    else {
+                        var errorJson = {
+                            success:null,
+                            fail :true,
+                            status:null
+                        };
+                        callback(true,errorJson);
+                    }
+                });
+            }
+
+        ],function (error, result) {
+            return res.json(result[0])
+        });
     });
 
     return router;
