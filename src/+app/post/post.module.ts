@@ -7,11 +7,12 @@ import {CommonModule} from "@angular/common";
 import {RouterModule} from "@angular/router";
 import {FormsModule} from "@angular/forms";
 import {PostResolver} from "../shared/resolvers/post.resolver";
+import {DisqusComponent} from "../layout/disqus.component";
 
 @NgModule({
     imports: [LayoutModule,PostRoutesModule,CommonModule,RouterModule,FormsModule],
     exports: [],
-    declarations: [PostComponent],
+    declarations: [PostComponent,DisqusComponent],
     providers: [PostResolver],
 })
 export class PostModule { }

@@ -9,7 +9,7 @@ import {fakeDemoRedisCache} from './cache';
 
 // you would use cookies/token etc
 var USER_ID = 'f9d98cf1-1b96-464e-8755-bcc2a5c09077'; // hardcoded as an example
-var baseURL = "https://alisch.me/api/";
+var baseURL = "https://alisch.me/back/api/";
 
 // Our API for demos only
 export function serverApi(req, res) {

@@ -8,6 +8,8 @@ import {Component, ViewEncapsulation, ChangeDetectionStrategy} from '@angular/co
 })
 export class HeaderComponent{
 
-    constructor() { console.log("header");}
+    constructor() {
+
+    }
 
 }
