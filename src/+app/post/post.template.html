@@ -1,0 +1,40 @@
+<div class="container">
+<header app-header></header>
+    <div class="post-content">
+        <h4>{{post?.title}}</h4>
+        <p>{{post?.date}}</p>
+        <div class="banner-block">
+            <div class="main-slide-animation non-draggable-image" *ngFor="let banner of post?.image;let i=index" [ngStyle]="{display:!isCurrentSlideIndex(i) }">
+
+                <img class="post-img" [src]="banner" alt="{{post?.title}}">
+                <div *ngIf="post?.image.length>1" class="gallery-controller">
+                    <p class="next" (click)="nextSlide()"> >> </p>
+                    <p class="prev" (click)="prevSlide()"> << </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- <img data-ng-if="post.image" class="post-img" data-ng-src="{{post.image}}"-->
+        <div [innerHTML]="post?.description"></div>
+
+        <div class="tag-cloud" *ngIf="post?.meta_tags">
+            <p>Tags Cloud</p>
+            <h3 *ngFor="let item of post?.meta_tags">{{item}}</h3>
+        </div>
+        <div id="disqus_thread"></div>
+
+        <script>
+            (function() { // DON'T EDIT BELOW THIS LINE
+                var d = document, s = d.createElement('script');
+
+                s.src = '//alisch.disqus.com/embed.js';
+
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        </script>
+
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+    </div>
+</div>
