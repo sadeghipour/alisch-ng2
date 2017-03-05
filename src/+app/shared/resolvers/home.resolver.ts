@@ -9,7 +9,8 @@ export class HomeResolver implements Resolve<any>{
     constructor(public apiService:ApiService) { }
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any>|Promise<any>|any {
-        return this.apiService.postResolve("/gapi/getAllPosts");
+        //return this.apiService.postResolve("/gapi/getAllPosts");
+        return this.apiService.postResolve("/back/api/getAllPosts");
     }
 
 }

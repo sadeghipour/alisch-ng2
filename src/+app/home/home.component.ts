@@ -9,7 +9,8 @@ import {isBrowser} from "angular2-universal";
 export class HomeComponent implements OnInit {
     public lastPosts:any;
     constructor(public cacheService:CacheService,public meta:Meta) {
-        this.lastPosts = this.cacheService.get("/gapi/getAllPosts")?this.cacheService.get("/gapi/getAllPosts").success:null;
+        //this.lastPosts = this.cacheService.get("/gapi/getAllPosts")?this.cacheService.get("/gapi/getAllPosts").success:null;
+        this.lastPosts = this.cacheService.get("/back/api/getAllPosts")?this.cacheService.get("/back/api/getAllPosts").success:null;
 
 
         //set desc and title
