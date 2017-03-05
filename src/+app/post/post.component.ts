@@ -45,12 +45,13 @@ export class PostComponent implements OnInit,OnDestroy {
     ngOnInit(): void {
         if (isBrowser) {
             //set desc and title
-            let elDesc = window.document.querySelector("meta[name=description]");
-            let elKeywords = window.document.querySelector("meta[name=keywords]");
-
-            if(elDesc)elDesc.setAttribute('content', this.post.title);
-            if(elKeywords)elKeywords.setAttribute('content', this.post.meta_tags.join());
-            window.document.title = 'Ali SadeghipourKorabaslo | Ali Körabbaslu';
+            if(this.post){
+                let elDesc = window.document.querySelector("meta[name=description]");
+                let elKeywords = window.document.querySelector("meta[name=keywords]");
+                if(elDesc)elDesc.setAttribute('content', this.post.title);
+                if(elKeywords)elKeywords.setAttribute('content', this.post.meta_tags.join());
+                window.document.title = 'Ali SadeghipourKorabaslo | Ali Körabbaslu';
+            }
         }
     }
 

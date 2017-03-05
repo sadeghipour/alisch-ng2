@@ -105,7 +105,10 @@ export class Meta {
 
   private _appendMetaElement(meta: HTMLMetaElement): void {
     const head = this._document.head;
-    this._dom.appendChild(head, meta);
+    if(this._dom){
+      this._dom.appendChild(head, meta);
+    }
+
   }
 
   private _flattenArray(input: any[], out: any[] = []): any[] {

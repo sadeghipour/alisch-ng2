@@ -11,10 +11,9 @@ export class DisqusComponent implements OnInit{
 
     @Input() public identifier:string;
     @Input() public shortname:string = "alisch";
-    public dom;
 
     constructor(private el:ElementRef, private renderer:Renderer) {
-        //this.dom = el.nativeElement;
+
     }
 
     ngOnInit() {
@@ -43,7 +42,6 @@ export class DisqusComponent implements OnInit{
      */
     addScriptTag() {
         (<any>window).disqus_config = this.getConfig();
-
         let script = this.renderer.createElement(this.el.nativeElement, 'script');
         script.src = `//alisch.disqus.com/embed.js`;
         script.async = true;
