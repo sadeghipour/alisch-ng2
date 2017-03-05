@@ -1,4 +1,6 @@
 import { Component,ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
+import {isBrowser} from "angular2-universal";
 
 @Component({
   changeDetection: ChangeDetectionStrategy.Default,
@@ -7,5 +9,5 @@ import { Component,ChangeDetectionStrategy, ViewEncapsulation } from '@angular/c
   templateUrl:"app.template.html"
 })
 export class AppComponent {
-  title = 'ftw';
+
 }

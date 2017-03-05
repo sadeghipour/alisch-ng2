@@ -43,6 +43,7 @@ export class PostComponent implements OnInit,OnDestroy {
     }
 
     ngOnInit(): void {
+
         if (isBrowser) {
             //set desc and title
             if(this.post){
@@ -51,6 +52,8 @@ export class PostComponent implements OnInit,OnDestroy {
                 if(elDesc)elDesc.setAttribute('content', this.post.title);
                 if(elKeywords)elKeywords.setAttribute('content', this.post.meta_tags.join());
                 window.document.title = 'Ali SadeghipourKorabaslo | Ali Körabbaslu';
+
+                window["ga"]('send', 'pageview', { page: window["location"]["pathname"] });
             }
         }
     }

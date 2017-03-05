@@ -26,6 +26,8 @@ export class HomeComponent implements OnInit {
             elDesc.setAttribute('content', 'I\'m a Code Maker');
             elKeywords.setAttribute('content', "IOT, Angular 2, Universal, MongoDB, Ali Körabbaslu");
             window.document.title = 'Ali SadeghipourKorabaslo | Ali Körabbaslu';
+
+            window["ga"]('send', 'pageview', { page: window["location"]["pathname"] });
         }
 
 

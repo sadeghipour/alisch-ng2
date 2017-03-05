@@ -29,6 +29,8 @@ export class NoContentComponent implements OnInit {
             if (elDesc) elDesc.setAttribute('content', "IOT, Angular 2, Universal, MongoDB, Ali Körabbaslu");
             if (elKeywords) elKeywords.setAttribute('content', "");
             window.document.title = 'Alisch.me';
+
+            window["ga"]('send', 'pageview', { page: window["location"]["pathname"] });
         }
     }
 
