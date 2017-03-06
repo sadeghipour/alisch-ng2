@@ -23,8 +23,8 @@ export class PostComponent implements OnInit,OnDestroy {
             {
                 if (params && params.title) {
                     this.identifier = params.title;
-                    //this.post = this.cacheService.get("/gapi/getPostByTitle") ? this.cacheService.get("/gapi/getPostByTitle").success : null;
-                    this.post = this.cacheService.get("/back/api/getPostByTitle") ? this.cacheService.get("/back/api/getPostByTitle").success : null;
+                    this.post = this.cacheService.get("/gapi/getPostByTitle") ? this.cacheService.get("/gapi/getPostByTitle").success : null;
+                    //this.post = this.cacheService.get("/back/api/getPostByTitle") ? this.cacheService.get("/back/api/getPostByTitle").success : null;
                     if (this.post) {
                         this.post.meta_tags = this.post.meta_tags.split(",");
                         this.meta.setTitle("Ali SadeghipourKorabaslo | Ali Körabbaslu");

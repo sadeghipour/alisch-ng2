@@ -10,7 +10,7 @@ export class PostResolver implements Resolve<any> {
 
     resolve(route:ActivatedRouteSnapshot):Observable<any> | boolean{
         let params = "title="+route.params['title'];
-        //return this.apiService.post("/gapi/getPostByTitle",params.replace(/&/g,'%26'));
-        return this.apiService.post("/back/api/getPostByTitle",params.replace(/&/g,'%26'));
+        return this.apiService.post("/gapi/getPostByTitle",params.replace(/&/g,'%26'));
+        //return this.apiService.post("/back/api/getPostByTitle",params.replace(/&/g,'%26'));
     }
 }
